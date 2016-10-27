@@ -1,11 +1,13 @@
 'use strict';
 
-var webpackConfig = require('webpack/webpack.test');
+var webpackConfig = require('../webpack/webpack.test');
 
 module.exports = (config) => {
     config.set({
         
-        browsers: ['Chrome', 'PhantomJS'],
+        basePath: '',
+
+        browsers: ['PhantomJS'],
         frameworks: ['jasmine'],
 
         phantomJsLauncher: {
@@ -13,11 +15,11 @@ module.exports = (config) => {
         },
 
         files: [
-            {pattern: 'karma-entry.js', watched: false}
+            {pattern: 'karma.entry.js', watched: false}
         ],
 
         preprocessors: {
-            'karma-entry.js': ['webpack', 'sourcemap']
+            'karma.entry.js': ['webpack', 'sourcemap']
         },
 
         webpack: webpackConfig,
