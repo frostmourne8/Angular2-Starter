@@ -24,11 +24,11 @@ module.exports = (config) => {
 
         webpack: webpackConfig,
 
-        webpackMiddleware: { stats: 'errors-only' },
+        webpackMiddleware: { stats: 'errors-only', noInfo: true },
 
         webpackServer: { noInfo: true },
 
-        reporters: ['progress'],
+        reporters: ['progress', 'clear-screen'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,

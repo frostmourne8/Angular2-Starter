@@ -9,6 +9,12 @@ module.exports = webpackMerge(commonConfig, {
 
   devtool: 'inline-source-map',
 
+  resolve: {
+    alias: {
+      'tests': path.resolve(commonConfig.rootDir, 'tests')
+    }
+  },
+
   module: {
     preLoaders: [
       { exclude: /node_modules/, loader: 'tslint', test: /\.ts$/ }
