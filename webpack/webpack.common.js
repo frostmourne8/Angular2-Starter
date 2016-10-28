@@ -22,7 +22,7 @@ module.exports = {
         loaders: [
             html(),
             applicationStyles(),
-            applicationCode()
+            applicationTemplates()
         ]
     }    
 };
@@ -31,8 +31,8 @@ function html() {
     return { test: /\.html$/, loader: 'html' };
 }
 
-function applicationCode() {
-    return { test: /\.ts$/, exclude: /node_modules/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] };
+function applicationTemplates() {
+    return { test: /\.ts$/, exclude: /node_modules/, loader: 'angular2-template-loader' };
 }
 
 function applicationStyles() {

@@ -19,7 +19,7 @@ module.exports = (config) => {
         ],
 
         preprocessors: {
-            'karma.entry.js': ['webpack', 'sourcemap']
+            'karma.entry.js': ['coverage', 'webpack', 'sourcemap']
         },
 
         webpack: webpackConfig,
@@ -28,7 +28,17 @@ module.exports = (config) => {
 
         webpackServer: { noInfo: true },
 
-        reporters: ['progress', 'clear-screen'],
+        coverageReporter: {
+            type: 'in-memory'
+        },
+
+        remapCoverageReporter: {
+            'text-summary': null,
+            json: './coverage/coverage.json',
+            html: './coverage/html'
+        },
+
+        reporters: ['progress', 'coverage', 'remap-coverage'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,

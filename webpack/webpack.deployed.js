@@ -24,7 +24,8 @@ module.exports = webpackMerge(commonConfig, {
     module: {
         loaders: [
             assets(),
-            libraryStyles()
+            libraryStyles(),
+            applicationCode()
         ]
     },
 
@@ -39,6 +40,10 @@ module.exports = webpackMerge(commonConfig, {
         })
     ]
 });
+
+function applicationCode() {
+    return { test: /\.ts$/, exclude: /node_modules/, loader: 'awesome-typescript-loader' };
+}
 
 function assets() {
     return {
