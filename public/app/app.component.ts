@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+
+require('images/favicon.ico');
 
 @Component({
-  selector: 'application',
-  templateUrl: 'app.html'
+  selector: 'body',
+  templateUrl: 'app.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 

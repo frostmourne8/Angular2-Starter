@@ -11,8 +11,6 @@ const commonConfig = require('./webpack.common');
 const appDir = path.resolve(commonConfig.rootDir, 'public');
 const bundlesDir = path.resolve(appDir, 'bundles');
 
-const resourcePattern = /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/;
-
 module.exports = webpackMerge(commonConfig, {
 
     entry: {
@@ -23,7 +21,7 @@ module.exports = webpackMerge(commonConfig, {
 
     module: {
         loaders: [
-            assets(),
+            assets(),            
             libraryStyles(),
             applicationCode()
         ]
@@ -47,8 +45,8 @@ function applicationCode() {
 
 function assets() {
     return {
-        test: resourcePattern,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        test: commonConfig.resourcePattern,
+        loader: 'file?name=[path][name].[ext]&context=public/'
     };
 }
 
