@@ -1,6 +1,30 @@
 {
-    "quotemark": [
-        true,
-        "single"
-    ]
+    "extends": "tslint:recommended",
+    "rules": {
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "interface-name": false,
+        "object-literal-sort-keys": false,
+        "trailing-comma": {
+            "options": {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        },
+        "ordered-imports": false,
+        "whitespace": {
+            "options": [
+                "check-decl",
+                "check-operator",
+                "check-separator",
+                "check-type",
+                "check-typecast"
+            ]
+        },
+        "max-classes-per-file": false,
+        "arrow-parens": false,
+        "no-unused-expression": false
+    }
 }

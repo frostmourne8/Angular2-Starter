@@ -1,17 +1,27 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "baseUrl": "public",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "paths": {
-      "tests/*": ["../tests/*"]
-    }
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "baseUrl": "src",
+        "rootDir": ".",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "noImplicitAny": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "paths": {
+            "shared/*": [ "../server/shared/*" ]
+        },
+        "types": [
+            "core-js",
+            "jasmine",
+            "node"
+        ]
+    },
+    "include": [
+        "src",
+        "server/shared"
+    ]
 }

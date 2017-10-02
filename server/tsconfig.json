@@ -1,0 +1,22 @@
+{
+    "extends": "../tsconfig",
+    "compilerOptions": {
+        "rootDir": ".",
+        "baseUrl": ".",
+        "outDir": "../dist",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "types": [
+            "node",
+            "jasmine",
+            "core-js"
+        ]
+    },
+    "include": [
+        "."
+    ],
+    "exclude": [
+        "**/tests/*",
+        "node_modules"
+    ]
+}
