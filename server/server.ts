@@ -44,7 +44,7 @@ export class AppServer {
 
     public loadService(servicePath: string, serviceModule: ServiceModule, ...middleware: RequestHandler[]) {
         this.container.load(serviceModule);
-        this.route(servicePath, this.container.get(serviceModule.route));
+        this.route('/api' + servicePath, this.container.get(serviceModule.route));
     }
 
     private createExpressServer(): Express {
@@ -67,10 +67,6 @@ export class AppServer {
         const router = Router();
         route.apply(router);
 
-        if(middleware) {
-            this.server.use(servicePath, middleware, router);
-        } else {
-            this.server.use(servicePath, router);
-        }
+        this.server.use(servicePath, middleware, router);
     }
 }

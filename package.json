@@ -4,8 +4,8 @@
   "description": "An base project to use from future angular2 applications",
   "scripts": {
     "start": "concurrently --kill-others --raw \"npm run start:dev-server\" \"npm run start:dev\"",
-    "start:dev-server": "nodemon --exec ts-node --inspect ./server/server.ts",
-    "start:prod": "node server.js",
+    "start:dev-server": "nodemon --exec ts-node --inspect ./server/index.ts",
+    "start:prod": "node index.js",
     "start:dev": "webpack-dev-server --config webpack/webpack-dev.js --inline --progress --history-api-fallback",
     "test:ui": "karma start test-configuration/karma.conf.js",
     "test-coverage:ui": "karma start test-configuration/coverage-karma.conf.js",
@@ -14,6 +14,7 @@
     "test": "rimraf coverage && npm run test-coverage:ui && npm run test-coverage:server",
     "build": "rimraf dist && webpack --config webpack/webpack-prod.js --progress --profile --bail && npm run build:server",
     "build:server": "npm run compile:server && npm run copy:server",
+    "compile:server": "tsc -p server/tsconfig.json --allowJs",
     "copy:server": "copyup server/**/*.json dist/ && copyfiles package.json dist/"
   },
   "repository": {

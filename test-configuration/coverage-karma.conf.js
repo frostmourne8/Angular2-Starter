@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const path = require('path');
 const KARMA_BASE = require('./karma-base');
-const WebpackCoverage = require('../webpack/webpack.coverage');
+const WebpackCoverage = require('../webpack/webpack-coverage');
 
 module.exports = (config) => {
     config.set(_.extend(KARMA_BASE, {

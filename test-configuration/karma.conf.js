@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const KARMA_BASE = require('./karma-base');
-const WebpackTest = require('../webpack/webpack.test');
+const WebpackTest = require('../webpack/webpack-test');
 
 module.exports = (config) => {
     config.set(_.extend(KARMA_BASE, {

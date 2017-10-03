@@ -17,7 +17,10 @@ module.exports = webpackMerge(WebpackDeployed, {
         port: 9000,
         inline: false,
         proxy: {
-            '/api': 'http://127.0.0.1/3000'
+            '/api': {
+                target: 'http://127.0.0.1:3000',
+                secure: false
+            }
         },
         watchOptions: {
             poll: true
