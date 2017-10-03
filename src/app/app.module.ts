@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
+import { MainModule } from './main/main.module';
 
 @NgModule({
     declarations: [ AppComponent ],
@@ -13,7 +14,8 @@ import { AppRoutes } from './app.routes';
         BrowserModule,
         BrowserAnimationsModule,
         HttpModule,
-        RouterModule.forRoot(AppRoutes)
+        RouterModule.forRoot(AppRoutes),
+        MainModule
     ],
     bootstrap: [ AppComponent ]
 })

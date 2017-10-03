@@ -13,13 +13,14 @@ module.exports = webpackMerge(WebpackCommon, {
 
     module: {
         rules: [
-            applicationCode()
+            applicationCode(),
+            jquery()
         ]
     },
 
     entry: {
         'app': path.resolve(WebpackConstants.BUNDLES_DIR, 'main'),
-        'polyfills': path.resolve(WebpackConstants.APP_DIR, 'polyfills'),
+        'polyfills': path.resolve(WebpackConstants.BUNDLES_DIR, 'polyfills'),
         'bootstrap': 'bootstrap-loader'
     },
 
@@ -61,4 +62,14 @@ function applicationCode() {
         ],
         loader: '@ngtools/webpack'
     }
+}
+
+function jquery() {
+    return {
+        test: require.resolve('jquery'),
+        use: [{
+            loader: 'expose-loader',
+            options: 'jQuery'
+        }]
+    };
 }
