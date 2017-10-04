@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #5A7FA5;
+}
+
+.app-container {
+    height: 768px;
+    width: 1024px;
+    background-color: white;
+    margin: auto;
+}
+
+.app-header {
+    background-color: #383377;
+    color: white;
+    height: 10%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.app-content {
+    height: 80%
+}
+
+.app-logo {
+    height: 75px;
+}

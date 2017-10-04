@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
-import { MainModule } from './main/main.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
     declarations: [ AppComponent ],
@@ -15,7 +15,7 @@ import { MainModule } from './main/main.module';
         BrowserAnimationsModule,
         HttpModule,
         RouterModule.forRoot(AppRoutes),
-        MainModule
+        UsersModule
     ],
     bootstrap: [ AppComponent ]
 })

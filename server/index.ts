@@ -1,10 +1,10 @@
 import * as path from 'path';
 import { AppServer } from './server';
-import { MainModule } from './services/main/main.module';
+import { UsersModule } from './services/users/users.module';
 
 const contentPath = path.resolve(__dirname, 'src');
 
 const server = new AppServer(contentPath);
-server.loadService('/object', new MainModule());
+server.loadService('/users', new UsersModule());
 
 server.start();

@@ -1,0 +1,13 @@
+.user-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
+    border: solid #5DB681 1px;
+    border-radius: 10px;
+}
+
+.add-user-btn {
+    background-color: #5DB681;
+    margin-left: 10px;
+}

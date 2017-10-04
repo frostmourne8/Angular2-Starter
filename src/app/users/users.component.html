@@ -1,0 +1,8 @@
+<div *ngFor="let user of users" class="user-row">
+    <span>{{user.name}}</span><span>{{user.email}}</span><span>{{user.birthday | date }}</span>
+    <div>
+        <span class="glyphicon glyphicon-remove" (click)="removeUser(user)"></span>
+        <i class="glyphicon glyphicon-pencil" (click)="editUser(user)"></i>
+    </div>
+</div>
+<button type="button" class="btn btn-success add-user-btn">New User +</button>
