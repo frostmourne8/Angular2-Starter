@@ -37,17 +37,11 @@ module.exports = {
 };
 
 function fileAssets() {
-    return {
-        test: /\.(eot|svg|ico)$/,
-        loader: 'file-loader?name=[name].[hash:20].[ext]'
-    };
+    return { test: /\.(ttf|eot|ico)$/, loader: 'file-loader' };
 }
 
 function urlAssets() {
-    return {
-        test: /\.(jpg|png|gif|otf|ttf|woff|woff2|cur|ani)$/,
-        loader: 'url-loader?name=[name].[hash:20].[ext]&limit=10000'
-    };
+    return { test: /\.(woff2?|svg|png)$/, loader: 'url-loader?limit=10000' };
 }
 
 function  html() {

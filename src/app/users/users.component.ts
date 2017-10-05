@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
 
 import { UsersService } from './users.service';
+import { UserEditComponent } from './components/user-edit';
 import { User } from 'shared/users.model';
 
 @Component({
@@ -9,6 +10,9 @@ import { User } from 'shared/users.model';
     styleUrls: [ './users.component.css' ]
 })
 export class UsersComponent implements OnInit {
+
+    @ViewChild(UserEditComponent)
+    public editComponent: UserEditComponent;
 
     public users: User[];
 
@@ -22,5 +26,17 @@ export class UsersComponent implements OnInit {
         this.service.users().subscribe((users: User[]) => {
             this.users = users;
         });
+    }
+
+    public createNewUser() {
+        this.editComponent.create();
+    }
+
+    public editUser(user: User) {
+        this.editComponent.edit(user);
+    }
+
+    public removeUser(user: User) {
+        alert('I want to remove the user');
     }
 }

@@ -1,0 +1,55 @@
+.user-edit-container {
+    height: 0;
+    width: 400px;
+    margin: auto;
+    position: relative;
+}
+
+.user-edit-content {
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    position: absolute;
+    -webkit-transition: height 1s linear;
+    -moz-transition: height 1s linear;
+    transition: height 0.25s linear;
+}
+
+.user-edit-content.open {
+    height: 245px;
+}
+
+.user-edit-header {
+    background-color: #3C648E;
+    color: white;
+    font-size: 25px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.user-edit-form {
+    border: solid 1px;
+    border-top: none;
+    padding: 10px;
+    height: calc(100% - 40px);
+}
+
+
+
+.user-edit-input {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.user-edit-input span {
+    line-height: 34px;
+    width: 20%;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.user-edit-actions {
+    float: right;
+}
