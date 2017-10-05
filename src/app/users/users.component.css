@@ -11,6 +11,10 @@
     border-radius: 10px;
 }
 
+.users-value {
+    flex-grow: 1;
+}
+
 .add-user-btn {
     background-color: #5DB681;
     margin-left: 10px;

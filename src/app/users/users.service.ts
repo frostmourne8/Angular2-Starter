@@ -1,4 +1,5 @@
 import 'rxjs/add/operator/map';
+import * as moment from 'moment';
 
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -22,20 +23,39 @@ export class UsersService {
     }
 
     public create(info: UserInfo): Observable<User> {
-        return this.http.post('api/users', info).map((response: Response) => {
-            return response.json();
+        const payload = this.toUserInfoPayload(info);
+        return this.http.post('api/users', payload).map((response: Response) => {
+            return this.fromUserPayload(response.json());
         });
     }
 
-    public update(user: User): Observable<{success: boolean}> {
-        return this.http.put('api/users' + user.id, user).map((response: Response) => {
+    public update(userId: string, info: UserInfo): Observable<{success: boolean}> {
+        const payload = this.toUserInfoPayload(info);
+        return this.http.put('api/users/' + userId, payload).map((response: Response) => {
             return response.json();
         });
     }
 
     public delete(id: string): Observable<{success: boolean}> {
-        return this.http.delete('api/users' + id).map((response: Response) => {
+        return this.http.delete('api/users/' + id).map((response: Response) => {
             return response.json();
         });
+    }
+
+    private toUserInfoPayload(userInfo: UserInfo) {
+        return {
+            name: userInfo.name,
+            email: userInfo.email,
+            birthday: moment(userInfo.birthday).valueOf()
+        };
+    }
+
+    private fromUserPayload(payload): User {
+        return {
+            id: payload.id,
+            name: payload.name,
+            email: payload.email,
+            birthday: moment(payload.birthday).toDate()
+        };
     }
 }

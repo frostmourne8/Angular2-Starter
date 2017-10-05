@@ -22,7 +22,7 @@
             </div>
             <div class="user-edit-actions">
                 <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
-                <button type="button" class="btn btn-success" (click)="accept()">{{ primaryAction }}</button>
+                <button type="button" class="btn btn-success" (click)="accept()" [disabled]="form.invalid">{{ primaryAction }}</button>
             </div>
         </main>
     </div>
