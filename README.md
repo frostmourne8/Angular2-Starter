@@ -1,5 +1,5 @@
-# Angular 2 Web Kata
-This is a project used to demonstrate my skills with Angular2
+# Epic user management
+The answer to question #3 on the epic tech screen
 
 ## Dependencies
 The only required global dependency is node. All other dependencies will be installed by NPM.
@@ -20,7 +20,7 @@ npm start
 You can then navigate to <http://localhost:9000/webpack-dev-server> to launch the application
 
 ### Production build
-The command below will build and package the application for deployment. The production artifacts will be output to the **server/public** directory
+The command below will build and package the application for deployment. The production artifacts will be output to the **dist** directory
 ```bash
 npm run build
 ```
@@ -32,10 +32,32 @@ There are three layers of testing in this project:
 * _Component tests_ - Loads individual components and tests them in isolation. Tests are driven through fixture classes that manipulate the DOM.
 * _Service tests_ - Tests the backend node services
 
-All tests are always run as a single suite but can be executed in a continuous watch mode or as a single execution using one of the commands below
+The tests can be run in various modes:
+
+The full suite with coverage
 ```bash
 npm run test
-npm run test:single
 ```
+
+The ui tests in watch mode
+```bash
+npm run test:ui
+```
+
+The server tests in watch mode
+```bash
+npm run test:server
+```
+
+The ui tests with coverage
+```bash
+npm run test-coverage:ui
+```
+
+The server tests with coverage
+```bash
+npm run test-coverage:server
+```
+
 ### Coverage
 Test coverage will be reported in the console after each test run, and a detailed report will be output to the **coverage** directory
