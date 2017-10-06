@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const WebpackConstants = require('./webpack-constants');
 const WebpackCommon = require('./webpack-common');
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
 module.exports = webpackMerge(WebpackCommon, {
 

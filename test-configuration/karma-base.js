@@ -14,7 +14,7 @@ module.exports = {
     },
 
     preprocessors: {
-        'karma.entry.js': ['webpack', 'sourcemap']
+        'karma-entry.js': ['webpack', 'sourcemap']
     },
 
     webpackMiddleware: { stats: 'errors-only', noInfo: true, watchOptions: { poll: true }},

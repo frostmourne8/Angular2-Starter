@@ -20,6 +20,7 @@ export class UsersComponent implements OnInit {
 
     constructor(service: UsersService) {
         this.service = service;
+        this.users = [];
     }
 
     public ngOnInit(): void {
