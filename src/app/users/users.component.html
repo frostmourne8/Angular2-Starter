@@ -1,5 +1,9 @@
 <user-edit></user-edit>
 <div class="users-container">
+    <h4 class="no-users-message" *ngIf="users.length === 0">
+        No users found, please add some by clicking the "New User" button below.
+    </h4>
+
     <div *ngFor="let user of users" class="user-row">
         <span class="users-value">{{user.name}}</span>
         <span class="users-value">{{user.email}}</span>

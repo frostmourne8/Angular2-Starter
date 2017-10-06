@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
 
     public editUser(user: User) {
         this.editComponent.edit(user, (userInfo: UserInfo) => {
-            this.service.update(user.id, userInfo).subscribe((response: {success: boolean}) => {
+            this.service.update(user._id, userInfo).subscribe((response: {success: boolean}) => {
                 if(response.success) {
                     user.name = userInfo.name;
                     user.email = userInfo.email;
@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit {
         if(!confirm('Are you sure you want to delete ' + user.name)) { return; }
 
         const index = this.users.indexOf(user);
-        this.service.delete(user.id).subscribe((response: {success: boolean}) => {
+        this.service.delete(user._id).subscribe((response: {success: boolean}) => {
             if(response.success) {
                 this.users.splice(index, 1);
             }

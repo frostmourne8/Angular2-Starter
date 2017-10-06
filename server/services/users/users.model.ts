@@ -5,5 +5,5 @@ export interface UserInfo {
 }
 
 export interface User extends UserInfo {
-    id: string;
+    _id: string;
 }

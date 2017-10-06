@@ -52,7 +52,7 @@ export class UsersService {
 
     private fromUserPayload(payload): User {
         return {
-            id: payload.id,
+            _id: payload._id,
             name: payload.name,
             email: payload.email,
             birthday: moment(payload.birthday).toDate()

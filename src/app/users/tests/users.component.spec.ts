@@ -197,7 +197,7 @@ describe('UsersComponent', () => {
     beforeEach(() => {
         service = jasmine.createSpyObj('service', ['users', 'create', 'update', 'delete']);
         component = new UsersComponent(service);
-        component.editComponent = jasmine.createSpyObj('editComponent', ['edit', 'create']);;
+        component.editComponent = jasmine.createSpyObj('editComponent', ['edit', 'create']);
     });
 });
 

@@ -23,11 +23,10 @@ export class UserEditComponent {
     private callback: (userInfo: UserInfo) => void;
 
     constructor() {
-        this.header = 'edit';
         this.show = false;
 
         this.form = new FormGroup({
-            id: new FormControl(null),
+            _id: new FormControl(null),
             name: new FormControl(null, Validators.required),
             email: new FormControl(null, [Validators.required, Validators.email]),
             birthday: new FormControl(null, Validators.required)
@@ -56,9 +55,7 @@ export class UserEditComponent {
 
     public accept() {
         this.show = false;
-        if(this.callback) {
-            this.callback(this.getUser());
-        }
+        this.callback(this.getUser());
     }
 
     private setUser(user: User) {
