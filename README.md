@@ -12,6 +12,10 @@ npm install
 ## Running the application
 After you have installed the required dependencies you can launch the application in development mode or build it for production
 
+## Balance API
+In addition to the application, there is an exposed endpoint for manipulating a user's currency balance. The endpoint is at **PUT ../users/:id/balance**.
+The expected body is json of the format **{ "balance": *amount* }**. The amount can be negative to reduce the balance.
+
 ### Start development mode
 The command below will launch both the node backend and a webpack development server that will dynamically compile and serve the application resources.
 ```bash
