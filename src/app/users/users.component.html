@@ -8,6 +8,7 @@
         <span class="users-value">{{user.name}}</span>
         <span class="users-value">{{user.email}}</span>
         <span class="users-value">{{user.birthday | date }}</span>
+        <span class="users-value">{{user.balance | currency:'USD':true }}</span>
         <div>
             <i class="glyphicon glyphicon-pencil" (click)="editUser(user)"></i>
             <i class="glyphicon glyphicon-remove" (click)="removeUser(user)"></i>

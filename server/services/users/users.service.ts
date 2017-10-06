@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { injectable } from 'inversify';
 import { v1 } from 'uuid';
 import { MongoClient, Db, MongoError, Collection, UpdateWriteOpResult,
@@ -26,12 +27,10 @@ export class UsersService {
     }
 
     public create(info: UserInfo): Promise<User> {
-        const user = {
+        const user = _.extend(info, {
             _id: v1(),
-            name: info.name,
-            email: info.email,
-            birthday: info.birthday
-        };
+            balance: 0.0
+        });
 
         return this.mongo.insert(user).then((result: InsertOneWriteOpResult) => {
             return user;
@@ -47,6 +46,12 @@ export class UsersService {
     public delete(id: string): Promise<{success: boolean}> {
         return this.mongo.deleteOne({_id: id}).then((result: DeleteWriteOpResultObject) => {
             return { success: result.deletedCount === 1 };
+        });
+    }
+
+    public updateBalance(id: string, amount: number) {
+        return this.mongo.updateOne({_id: id}, {$inc: {balance: amount}}).then((results: UpdateWriteOpResult) => {
+            return { success: results.modifiedCount === 1 };
         });
     }
 }

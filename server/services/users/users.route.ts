@@ -18,6 +18,7 @@ export class UsersRoute implements ServerRouteConfig {
         router.get('/', this.users);
         router.post('/', this.create);
         router.put('/:id', this.update);
+        router.put('/:id/balance', this.balance);
         router.delete('/:id', this.delete);
     }
 
@@ -45,6 +46,16 @@ export class UsersRoute implements ServerRouteConfig {
     private delete = (req: Request, res: Response, next: NextFunction) => {
         const id = req.params.id;
         return this.service.delete(id).then((response: {success: boolean}) => {
+            res.status(201).send(response);
+        }).catch(next);
+    }
+
+    // This endpoint would certainly need to be secured. By OAuth perhaps or at least an API key
+    private balance = (req: Request, res: Response, next: NextFunction) => {
+        const id = req.params.id;
+        const amount = Number.parseFloat(req.body.balance);
+
+        return this.service.updateBalance(id, amount).then((response: {success: boolean}) => {
             res.status(201).send(response);
         }).catch(next);
     }

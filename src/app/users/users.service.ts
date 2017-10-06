@@ -1,5 +1,6 @@
 import 'rxjs/add/operator/map';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -43,19 +44,14 @@ export class UsersService {
     }
 
     private toUserInfoPayload(userInfo: UserInfo) {
-        return {
-            name: userInfo.name,
-            email: userInfo.email,
+        return _.extend(userInfo, {
             birthday: moment(userInfo.birthday).valueOf()
-        };
+        });
     }
 
     private fromUserPayload(payload): User {
-        return {
-            _id: payload._id,
-            name: payload.name,
-            email: payload.email,
+        return _.extend(payload, {
             birthday: moment(payload.birthday).toDate()
-        };
+        });
     }
 }
