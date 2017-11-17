@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { MainModule } from './main/main.module';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ModalLoaderComponent } from './components/modal-loader/modal-loader.component';
 
 @NgModule({
-    declarations: [ AppComponent, LoaderComponent ],
+    declarations: [ AppComponent, LoaderComponent, ModalLoaderComponent ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

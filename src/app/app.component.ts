@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
 
-import { LoaderComponent } from './components/loader/loader.component';
+import { ModalLoaderComponent } from './components/modal-loader/modal-loader.component';
 
 @Component({
     selector: 'app-root',
@@ -9,10 +9,11 @@ import { LoaderComponent } from './components/loader/loader.component';
 })
 export class AppComponent implements OnInit {
 
-    @ViewChild(LoaderComponent)
-    public loader: LoaderComponent;
+    @ViewChild(ModalLoaderComponent)
+    public loader: ModalLoaderComponent;
 
     public ngOnInit(): void {
-        this.loader.markFailure();
+        this.loader.startLoading('Loading the things');
+        this.loader.markFailure('Error loading the things');
     }
  }

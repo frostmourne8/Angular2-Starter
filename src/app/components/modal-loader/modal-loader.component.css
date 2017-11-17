@@ -1,0 +1,37 @@
+.loading-pane {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(75,75,75,0.5);
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+    z-index: 1;
+}
+
+.loading-pane[hidden] {
+    display: none;
+}
+
+.loading-modal {
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.loading-modal .loader,
+.loading-modal .x-mark,
+.loading-modal .checkmark {
+    margin: auto;
+}
+
+.loading-label {
+    font-size: 18px;
+    margin-top: 20px;
+}
