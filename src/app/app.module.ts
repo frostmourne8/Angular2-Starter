@@ -7,9 +7,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { MainModule } from './main/main.module';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
-    declarations: [ AppComponent ],
+    declarations: [ AppComponent, LoaderComponent ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

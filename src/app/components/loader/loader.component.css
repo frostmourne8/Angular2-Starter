@@ -1,0 +1,321 @@
+@keyframes checkmark-sm {
+    0% {
+        height: 0px;
+        width: 0px;
+    }
+    20% {
+        height: 0px;
+        width: 7.5px;
+    }
+    40% {
+        height: 15px;
+        width: 7.5px;
+    }
+    100% {
+        height: 15px;
+        width: 7.5px;
+    }
+}
+
+@keyframes checkmark-lg {
+    0% {
+        height: 0px;
+        width: 0px;
+    }
+    20% {
+        height: 0px;
+        width: 25px;
+    }
+    40% {
+        height: 50px;
+        width: 25px;
+    }
+    100% {
+        height: 50px;
+        width: 25px;
+    }
+}
+
+@keyframes checkmark-border {
+    0% {
+        transform: scale(0.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes x-mark-sm {
+    0% {
+        height: 0px;
+    }
+    20% {
+        height: 0px;
+    }
+    40% {
+        height: 20px;
+    }
+    100% {
+        height: 20px;
+    }
+}
+
+@keyframes x-mark-lg {
+    0% {
+        height: 0px;
+    }
+    20% {
+        height: 0px;
+    }
+    40% {
+        height: 60px;
+    }
+    100% {
+        height: 60px;
+    }
+}
+
+@keyframes spin-before {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-after {
+    0% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+    100% {
+        -webkit-transform: rotate(630deg);
+        transform: rotate(630deg);
+    }
+}
+
+@keyframes loader-lg-border {
+    0% {
+        box-shadow: inset 0 0 0 0px;
+    }
+    50% {
+        box-shadow: inset 0 0 0 20px;
+    }
+    100% {
+        box-shadow: inset 0 0 0 0px;
+    }
+}
+
+@keyframes loader-sm-border {
+    0% {
+        box-shadow: inset 0 0 0 0px;
+    }
+    50% {
+        box-shadow: inset 0 0 0 6px;
+    }
+    100% {
+        box-shadow: inset 0 0 0 0px;
+    }
+}
+
+.loader {
+    color: #0067AA;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    opacity: 1;
+    box-shadow: inset 0 0 0 0px;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+}
+
+.loader.hidden {
+    opacity: 0;
+}
+
+.loader:before,
+.loader:after {
+    position: absolute;
+    content: '';
+}
+
+.loader:before {
+    width: 50%;
+    height: 100%;
+    background-color: inherit;
+    animation: spin-before 2s infinite linear;
+}
+
+.loader:after {
+    width: 50%;
+    height: 100%;
+    background-color: inherit;
+    right: 0px;
+    transform: rotate(270deg);
+    animation: spin-after 2s infinite linear;
+}
+
+.loader.loader-lg {
+    width: 100px;
+    height: 85px;
+    animation: loader-lg-border 2s infinite linear;
+}
+
+.loader.loader-lg:before {
+    border-radius: 100px 0 0 100px;
+    transform-origin: 50px 50px;
+}
+
+.loader.loader-lg:after {
+    border-radius: 0 100px 100px 0;
+    transform-origin: 0px 50px;
+}
+
+.loader.loader-sm {
+    width: 30px;
+    height: 25.5px;
+    animation: loader-sm-border 2s infinite linear;
+}
+
+.loader.loader-sm:before {
+    border-radius: 30px 0 0 30px;
+    transform-origin: 15px 15px;
+}
+
+.loader.loader-sm:after {
+    border-radius: 0 30px 30px 0;
+    transform-origin: 0px 15px;
+}
+
+.checkmark {
+    position: relative;
+    border-radius: 50%;
+    background-color: #5cb85c;
+    animation: checkmark-border .2s linear;
+    animation-fill-mode: forwards;
+}
+
+.checkmark-sm {
+    height: 30px;
+    width: 30px;
+}
+
+.checkmark-lg {
+    height: 100px;
+    width: 100px;
+}
+
+.checkmark-sm:after {
+    animation: checkmark-sm 1.2s 1 ease .2s forwards;
+    animation-play-state: running;
+    transform: scaleX(-1) rotate(135deg);
+    border-right: 3px solid white;
+    border-top: 3px solid white;
+    left: 7.5px;
+    top: 15px;
+}
+
+.checkmark-lg:after {
+    animation: checkmark-lg 1.2s 1 ease .2s forwards;
+    animation-play-state: running;
+    transform: scaleX(-1) rotate(135deg);
+    border-right: 10px solid white;
+    border-top: 10px solid white;
+    left: 25px;
+    top: 50px;
+}
+
+.checkmark:after {
+    height: 0px;
+    width: 0px;
+    transform-origin: left top;
+    content: '';
+    position: absolute;
+}
+
+.x-mark {
+    position: relative;
+    border-radius: 50%;
+    background-color: red;
+    animation: checkmark-border .2s linear;
+    animation-fill-mode: forwards;
+}
+
+.x-mark-sm {
+    height: 30px;
+    width: 30px;
+}
+
+.x-mark-lg {
+    height: 100px;
+    width: 100px;
+}
+
+.x-mark:after {
+    animation-duration: 1.2s;
+    animation-timing-function: ease;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+    transform: scaleX(-1) rotate(135deg);
+}
+
+.x-mark-sm:after,
+.x-mark-sm:before {
+    animation-name: x-mark-sm;
+}
+
+.x-mark-lg:after,
+.x-mark-lg:before {
+    animation-name: x-mark-lg;
+}
+
+.x-mark:before {
+    animation-duration: 1.2s;
+    animation-timing-function: ease;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+    transform: scaleX(-1) rotate(45deg);
+}
+
+.x-mark:after {
+    transform-origin: left top;
+    content: '';
+    position: absolute;
+}
+
+.x-mark-sm:after {
+    border-right: 4px solid white;
+    left: 6px;
+    top: 20px;
+}
+
+.x-mark-lg:after {
+    border-right: 12px solid white;
+    left: 25px;
+    top: 66px;
+}
+
+.x-mark:before {
+    transform-origin: left top;
+    content: '';
+    position: absolute;
+}
+
+.x-mark-sm:before {
+    border-right: 4px solid white;
+    left: 10px;
+    top: 6px;
+}
+
+.x-mark-lg:before {
+    border-right: 12px solid white;
+    left: 35px;
+    top: 24px;
+}
